@@ -471,7 +471,7 @@ async def seasons_cb_handler(client: Client, query: CallbackQuery):
 @Client.on_callback_query(filters.regex(r"^fs#"))
 async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     _, seas, key = query.data.split("#")
-    curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    curr_time = datetime.now(pytz.timezone('Asia/Yangon')).time()
     search = FRESH.get(key)
     search = search.replace("_", " ")
     sea = ""
@@ -510,7 +510,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     seas1 = "s01" if seas == "season 1" else "s02" if seas == "season 2" else "s03" if seas == "season 3" else "s04" if seas == "season 4" else "s05" if seas == "season 5" else "s06" if seas == "season 6" else "s07" if seas == "season 7" else "s08" if seas == "season 8" else "s09" if seas == "season 9" else "s10" if seas == "season 10" else ""
     search1 = f"{search1} {seas1}"
     BUTTONS1[key] = search1
-    files1, _, _ = await get_search_results(chat_id, search1, max_results=10)
+    files1, _, _ = await get_search_results(chat_id, search1, max_results=5)
     files1 = [file for file in files1 if re.search(seas1, file.file_name, re.IGNORECASE)]
     
     if files1:
@@ -519,7 +519,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     seas2 = "season 01" if seas == "season 1" else "season 02" if seas == "season 2" else "season 03" if seas == "season 3" else "season 04" if seas == "season 4" else "season 05" if seas == "season 5" else "season 06" if seas == "season 6" else "season 07" if seas == "season 7" else "season 08" if seas == "season 8" else "season 09" if seas == "season 9" else "s010"
     search2 = f"{search2} {seas2}"
     BUTTONS2[key] = search2
-    files2, _, _ = await get_search_results(chat_id, search2, max_results=10)
+    files2, _, _ = await get_search_results(chat_id, search2, max_results=5)
     files2 = [file for file in files2 if re.search(seas2, file.file_name, re.IGNORECASE)]
 
     if files2:
@@ -528,7 +528,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     seas3 = "s1" if seas == "season 1" else "s2" if seas == "season 2" else "s3" if seas == "season 3" else "s4" if seas == "season 4" else "s5" if seas == "season 5" else "s6" if seas == "season 6" else "s7" if seas == "season 7" else "s8" if seas == "season 8" else "s9" if seas == "season 9" else "s10" if seas == "season 10" else ""
     search3 = f"{search3} {seas3}"
     BUTTONS1[key] = search3
-    files3, _, _ = await get_search_results(chat_id, search1, max_results=10)
+    files3, _, _ = await get_search_results(chat_id, search3, max_results=5)
     files3 = [file for file in files3 if re.search(seas3, file.file_name, re.IGNORECASE)]
     
     if files3:
